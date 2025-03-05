@@ -51,10 +51,10 @@ This set of Docker images seperates responsbility into 5 areas:
    * `docker-compose build`
 2. Download Wikimedia data and country grids (optional):
    * `docker-compose run feed download --wiki --grid`
-3. Download OSM Data.  We recommend [openmaptiles-tools](https://github.com/openmaptiles/openmaptiles-tools).  For Monaco:
-   * `docker run -v <path to working dir>/data:/tileset openmaptiles/openmaptiles-tools download-osm monaco`
+3. Download OSM Data.  We recommend [openmaptiles-tools](https://github.com/openmaptiles/openmaptiles-tools).  For Germany:
+   * `docker run -v <path to working dir>/data:/tileset openmaptiles/openmaptiles-tools download-osm europe/germany`
 4. Edit the OSM_FILENAME environment variable in `docker-compose.yml` file to select the downloaded OSM file.
-   * The default is `monaco-latest.osm.pbf` which was downloaded in step 3.
+   * The default is `germany-latest.osm.pbf` which was downloaded in step 3.
 5. Run `docker-compose up`
    * Wait a few minutes for the data to import.  You will see "Import complete"..
 6. Browse to: `http://localhost:8080`
