@@ -66,7 +66,9 @@ This set of Docker images seperates responsbility into 5 areas:
    * `docker-compose run feed setup`
 3. To update once:
    * `docker-compose run feed update`
-4. To run replication:
+4. To Catch Up:
+   *  `docker-compose run feed catchup`
+5. To run replication:
    * `docker-compose run feed replication`
 
 ## Configuration Hints
