@@ -1,6 +1,6 @@
 services:
   feed:
-    image: GPS4PETS/n7m-feed
+    image: gps4pets/n7m-feed
     depends_on:
       - gis
     environment:
@@ -12,7 +12,7 @@ services:
       - ./data:/data/
     shm_size: 1gb
   gis:
-    image: GPS4PETS/n7m-gis
+    image: gps4pets/n7m-gis
     restart: always
     environment:
       - POSTGRES_PASSWORD=n7m-geocoding
