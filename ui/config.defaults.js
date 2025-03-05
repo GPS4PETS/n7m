@@ -30,9 +30,9 @@ let Nominatim_Config = {
 
   // ---- MAP ----
   Reverse_Default_Search_Zoom: 18,
-  Map_Default_Lat: 20.0,
-  Map_Default_Lon: 0.0,
-  Map_Default_Zoom: 2,
+  Map_Default_Lat: 54.346381,
+  Map_Default_Lon: 10.207906,
+  Map_Default_Zoom: 10,
   // https://leafletjs.com/reference.html#map-fitbounds
   // Example: [[0,-180], [90,180]]
   // If set then _Lat, _Lon, _Zoom have no effect
