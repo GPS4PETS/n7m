@@ -32,4 +32,3 @@ WORKDIR /nominatim
 COPY --chmod=0755 *.sh ./
 
 ENTRYPOINT [ "./entrypoint.sh" ]
-CMD [ "setup" ]
