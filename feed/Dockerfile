@@ -11,7 +11,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     pkg-config \
     postgresql-client-15 \
  && pip install --no-cache-dir \
-    nominatim_db==$NOMINATIM_VERSION \
+    nominatim_db \
+    osmium \
  && apt-get purge -y --auto-remove \
     g++ \
     pkg-config \
