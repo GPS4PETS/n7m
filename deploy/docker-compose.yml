@@ -26,4 +26,4 @@ services:
     environment:
       - POSTGRES_PASSWORD=n7m-geocoding
     volumes:
-      - /data/pgdata:/var/lib/postgresql/data
+      - ./pgdata:/var/lib/postgresql/data
