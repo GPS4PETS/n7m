@@ -22,3 +22,8 @@ RUN rm /usr/share/nginx/html/index.html
 RUN rm /usr/share/nginx/html/config.defaults.js
 COPY index.html /usr/share/nginx/html/index.html
 COPY config.defaults.js /usr/share/nginx/html/config.defaults.js
+COPY logo-white-sehrklein.png /usr/share/nginx/html/logo-white-sehrklein.png
+COPY favicon.svg /usr/share/nginx/html/favicon.svg
+COPY favicon.png /usr/share/nginx/html/favicon.png
+COPY theme/* /usr/share/nginx/html/theme/.
+
