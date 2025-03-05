@@ -97,6 +97,18 @@ if [ "$1" = 'update' ]; then
   exec nominatim replication --once --threads $PROCESSING_UNITS
 fi
 
+if [ "$1" = 'catchup' ]; then
+  # run replication with any additonal command line options
+  waitForGis
+  waitForGisDatabase nominatim 
+    
+  echo "Starting Update"
+  echo "Number of processing units: $PROCESSING_UNITS"
+
+  nominatim replication --init
+  exec nominatim replication --catch-up --threads $PROCESSING_UNITS
+fi
+
 if [ "$1" = 'replication' ]; then
   # run replication with any additonal command line options
   waitForGis
@@ -106,7 +118,7 @@ if [ "$1" = 'replication' ]; then
   echo "Number of processing units: $PROCESSING_UNITS"
 
   nominatim replication --init
-  exec nominatim "$@" --threads $PROCESSING_UNITS
+  exec nominatim replication --threads $PROCESSING_UNITS
 fi
 
 exec "$@"
