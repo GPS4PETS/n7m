@@ -1,4 +1,4 @@
-FROM smithmicro/n7m-ui
+FROM gps4pets/n7m-ui
 
 # required configuration for a Reverse Geocode only UI
 RUN echo "Nominatim_Config.Reverse_Only = true;" >> \
