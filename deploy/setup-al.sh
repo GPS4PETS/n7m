@@ -16,9 +16,9 @@ sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-c
     -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
-# Pull data required for North America
+# Pull data required for Germany
 docker-compose run feed download --wiki --grid
-docker run -v /data/data:/tileset openmaptiles/openmaptiles-tools download-osm north-america
+docker run -v /data/data:/tileset openmaptiles/openmaptiles-tools download-osm germany
 
 # Setup
 docker-compose -f docker-compose-setup.yml up -d
@@ -28,7 +28,7 @@ exit
 
 # to download and execute this:
 N7M_VERSION=v0.9.8 \
- && curl -O -L https://github.com/smithmicro/n7m/archive/refs/tags/$N7M_VERSION.tar.gz \
+ && curl -O -L https://github.com/GPS4PETS/n7m/archive/refs/tags/$N7M_VERSION.tar.gz \
  && tar xvf $N7M_VERSION.tar.gz --strip-components=1 \
  && cd deploy \
  && ./setup-al.sh
