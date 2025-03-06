@@ -7,7 +7,7 @@ ENV NOMINATIM_VERSION=4.5.0
 RUN apt-get update && apt-get install -y --no-install-recommends \
     g++ \
     libicu-dev \
-    osm2pgsql>=1.8 \
+    osm2pgsql \
     pkg-config \
     postgresql-client-15 \
     curl \

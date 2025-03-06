@@ -47,3 +47,19 @@ services:
       - POSTGRES_PASSWORD=n7m-geocoding
     volumes:
       - ./pgdata:/var/lib/postgresql/data
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4_container
+    restart: always
+    ports:
+      - "8888:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: info@gps4pets.de
+      PGADMIN_DEFAULT_PASSWORD: Ha1f1sch 
+    volumes:
+      - ./pgadmin-data:/var/lib/pgadmin
+
+volumes:
+  data:
+  pgdata:
+  pgadmin-data:
