@@ -20,7 +20,7 @@ let Nominatim_Config = {
   Nominatim_API_Endpoint_Params: {},
 
   // If database has no search index, then hide search page
-  Reverse_Only: true,
+  Reverse_Only: false,
 
   // relative path or full URL
   Images_Base_Url: 'mapicons/',

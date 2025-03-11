@@ -9,11 +9,15 @@ services:
       - api
       - ui
     mem_limit: 100m
+    networks:
+      - osm_bridge 
   ui:
     build: ui
     image: gps4pets/n7m-ui
     restart: always
     mem_limit: 100m
+    networks:
+      - osm_bridge 
   api:
     build: api
     image: gps4pets/n7m-api
@@ -24,6 +28,8 @@ services:
     depends_on:
       - gis
     mem_limit: 200m
+    networks:
+      - osm_bridge
   feed:
     build: feed
     image: gps4pets/n7m-feed
@@ -37,6 +43,8 @@ services:
       - NOMINATIM_REPLICATION_UPDATE_INTERVAL=86400
     volumes:
       - ./data:/data/
+    networks:
+      - osm_bridge 
   gis:
     build: gis
     image: gps4pets/n7m-gis
@@ -47,19 +55,8 @@ services:
       - POSTGRES_PASSWORD=n7m-geocoding
     volumes:
       - ./pgdata:/var/lib/postgresql/data
-  pgadmin:
-    image: dpage/pgadmin4
-    container_name: pgadmin4_container
-    restart: always
-    ports:
-      - "8888:80"
-    environment:
-      PGADMIN_DEFAULT_EMAIL: info@gps4pets.de
-      PGADMIN_DEFAULT_PASSWORD: Ha1f1sch 
-    volumes:
-      - ./pgadmin-data:/var/lib/pgadmin
+    networks:
+      - osm_bridge 
+networks:
+  osm_bridge:
 
-volumes:
-  data:
-  pgdata:
-  pgadmin-data:
