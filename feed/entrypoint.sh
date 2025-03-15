@@ -4,7 +4,8 @@ set -e
 
 # Export this for the Nominatim CLI
 export NOMINATIM_DATABASE_DSN="pgsql:dbname=nominatim;host=$PGHOST;user=$PGUSER;password=$PGPASSWORD"
-export PROCESSING_UNITS=$(nproc)
+#export PROCESSING_UNITS=$(nproc)
+export PROCESSING_UNITS=4
 
 function waitForGis() {
   # wait for gis container to reach a ready state
