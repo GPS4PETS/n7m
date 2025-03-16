@@ -19,5 +19,6 @@ RUN echo "Nominatim_Config.Nominatim_API_Endpoint='$NOMINATIM_APINOMINATIM_API_E
 COPY site.conf /etc/nginx/conf.d/default.conf
 
 COPY html/* /usr/share/nginx/html/.
+COPY html/build/* /usr/share/nginx/html/build/.
 COPY theme/* /usr/share/nginx/html/theme/.
 
