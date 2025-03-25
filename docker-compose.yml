@@ -42,7 +42,7 @@ services:
       - NOMINATIM_REPLICATION_MAX_DIFF=3000
       - NOMINATIM_REPLICATION_UPDATE_INTERVAL=86400
     volumes:
-      - ./data:/data/
+      - /opt/n7m/data:/data/
     networks:
       - osm_bridge 
   gis:
@@ -54,7 +54,7 @@ services:
     environment:
       - POSTGRES_PASSWORD=n7m-geocoding
     volumes:
-      - ./pgdata:/var/lib/postgresql/data
+      - /opt/n7m/pgdata:/var/lib/postgresql/data
     networks:
       - osm_bridge 
 networks:

@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     pkg-config \
     postgresql-client-15 \
     curl \
+    git \ 
  && pip install --no-cache-dir \
     nominatim_db \
     osmium \
@@ -30,5 +31,11 @@ WORKDIR /nominatim
 
 # copy shell scripts
 COPY --chmod=0755 *.sh ./
+
+# get osm2pgsql-themepark
+#git clone https://github.com/osm2pgsql-dev/osm2pgsql-themepark data
+#COPY project-search-map/osm2pgsql-style.lua data/.
+#COPY project-search-map/.env data/.env
+#RUN export LUAPATH=~/data/lua/?.lua
 
 ENTRYPOINT [ "./entrypoint.sh" ]
