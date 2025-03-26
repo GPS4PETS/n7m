@@ -39,3 +39,5 @@ COPY --chmod=0755 *.sh ./
 #RUN export LUAPATH=~/data/lua/?.lua
 
 ENTRYPOINT [ "./entrypoint.sh" ]
+
+CMD ["catchup"]
