@@ -6,6 +6,8 @@ ENV NOMINATIM_VERSION=4.5.0
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     g++ \
+    vim \
+    procps \
     libicu-dev \
     osm2pgsql \
     pkg-config \
