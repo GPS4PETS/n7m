@@ -1,4 +1,4 @@
-ces:
+services:
   web:
     build: 
       context: /opt/n7m/web

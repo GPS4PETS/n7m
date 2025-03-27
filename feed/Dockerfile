@@ -42,4 +42,4 @@ COPY --chmod=0755 *.sh ./
 
 ENTRYPOINT [ "./entrypoint.sh" ]
 
-CMD ["catchup"]
+CMD ["update"]
