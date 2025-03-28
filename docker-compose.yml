@@ -38,7 +38,7 @@ services:
     depends_on:
       - gis
     healthcheck:
-      test: "curl -f http://localhost:8000"
+      test: "curl -f http://localhost:8000/status"
     mem_limit: 200m
     networks:
       - osm_bridge
