@@ -1,12 +1,14 @@
 services:
   web:
-    build: 
+    build:
       context: /opt/n7m/web
       dockerfile: /opt/n7m/web/Dockerfile
     image: gps4pets/n7m-web
     restart: always
     ports:
       - "8080:80"
+    healthcheck:
+      test: "curl -f http://localhost"
     depends_on:
       - api
       - ui
@@ -14,16 +16,18 @@ services:
     networks:
       - osm_bridge
   ui:
-    build: 
+    build:
       context: /opt/n7m/ui
       dockerfile: /opt/n7m/ui/Dockerfile
     image: gps4pets/n7m-ui
     restart: always
     mem_limit: 100m
+    healthcheck:
+      test: "curl -f http://localhost"
     networks:
       - osm_bridge
   api:
-    build: 
+    build:
       context: /opt/n7m/api
       dockerfile: /opt/n7m/api/Dockerfile
     image: gps4pets/n7m-api
@@ -33,11 +37,13 @@ services:
       - WEB_CONCURRENCY=2
     depends_on:
       - gis
+    healthcheck:
+      test: "curl -f http://localhost:8000"
     mem_limit: 200m
     networks:
       - osm_bridge
   feed:
-    build: 
+    build:
       context: /opt/n7m/feed
       dockerfile: /opt/n7m/feed/Dockerfile
     image: gps4pets/n7m-feed
@@ -54,7 +60,7 @@ services:
     networks:
       - osm_bridge
   gis:
-    build: 
+    build:
       context: /opt/n7m/gis
       dockerfile: /opt/n7m/gis/Dockerfile
     image: gps4pets/n7m-gis
@@ -63,10 +69,15 @@ services:
       - "5432:5432"
     environment:
       - POSTGRES_PASSWORD=n7m-geocoding
+    healthcheck:
+      test: pg_isready -h gis -U postgres
+      interval: 60s
+      retries: 2
+      timeout: 10s
     volumes:
       - /opt/n7m/pgdata:/var/lib/postgresql/data
     networks:
       - osm_bridge
 networks:
   osm_bridge:
-
+  

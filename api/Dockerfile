@@ -6,6 +6,7 @@ ENV NOMINATIM_VERSION=5.0.0
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     g++ \
+    curl \
     libicu-dev \
     pkg-config \
     postgresql-client-15 \
