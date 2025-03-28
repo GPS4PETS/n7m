@@ -1,6 +1,6 @@
 FROM python:3.11-slim-bookworm
 
-ENV NOMINATIM_VERSION=4.5.0
+ENV NOMINATIM_VERSION=5.0.0
 
 # https://nominatim.org/release-docs/latest/admin/Install-on-Ubuntu-24/
 
