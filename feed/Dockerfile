@@ -42,5 +42,5 @@ COPY --chmod=0755 *.sh ./
 
 ENTRYPOINT [ "./entrypoint.sh" ]
 
-#CMD ["tail", "-f", "/dev/null"]
-CMD ["replication"]
+Ã#CMD ["tail", "-f", "/dev/null"]
+#CMD ["replication"]
