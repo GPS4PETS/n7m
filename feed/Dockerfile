@@ -1,6 +1,6 @@
 FROM python:3.11-slim-bookworm
 
-ENV NOMINATIM_VERSION=5.0.0
+ENV NOMINATIM_VERSION=5.1.0
 
 # https://nominatim.org/release-docs/latest/admin/Install-on-Ubuntu-24/
 
@@ -42,5 +42,5 @@ COPY --chmod=0755 *.sh ./
 
 ENTRYPOINT [ "./entrypoint.sh" ]
 
-Ã#CMD ["tail", "-f", "/dev/null"]
+Ãƒ#CMD ["tail", "-f", "/dev/null"]
 #CMD ["replication"]
